@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 2000px;
+        }
+        p{
+            font-size: 30px;
+            color: red;
+            text-align: center;
+        }
+        span{
+            /*display: inline-block;*/
+            color: red;
+            font-size: 50px;
+            opacity: 0.6;
+            position: absolute;
+            bottom: 50px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            $("#back").on("click",function () {
+                    $(window).scrollTop(0);
+            })
+            $(window).on("scroll",function () {
+                    $("#back").animate({"bottom" : 50 - $(document).scrollTop() + "px"},10);
+                });
+        });
+    </script>
+</head>
+<body>
+    <p>顶部</p>
+    <div>
+
+    </div>
+    <p>底部</p>
+    <span id="back">返回</span>
+</body>
+</html>

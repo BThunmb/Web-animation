@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select {
+            width: 200px;
+            background-color: teal;
+            height: 200px;
+            font-size: 20px;
+        }
+        .btn-box {
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn-sel-all").on("click",function () {
+                $("#src-city option").appendTo("#tar-city");
+            });
+            $("#btn-sel-none").on("click",function () {
+                $("#tar-city option").appendTo("#src-city");
+            });
+                // console.log("11");
+            $("#btn-back").on("click",function () {
+                $("#tar-city option:selected").appendTo("#src-city");
+                // console.log("22");
+            });
+            // $("#btn-sel").on("click",function () {
+            //     // console.log("33");
+            //     $("#src-city option:selected").appendTo("#tar-city");
+            // })
+            $("#btn-box").delegate("button:eq(3)","click",function () {
+               $("#src-city option:selected").appendTo("#tar-city");
+            });
+        });
+    </script>
+</head>
+<body>
+<select id="src-city" name="src-city" multiple>
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">深圳</option>
+    <option value="4">广州</option>
+    <option value="5">西红柿</option>
+</select>
+<div class="btn-box" id="btn-box">
+    <button id="btn-sel-all"> &gt;&gt; </button>
+    <button id="btn-sel-none"> &lt;&lt; </button>
+    <button id="btn-back"> &lt; </button>
+    <button id="btn-sel"> &gt;</button>
+</div>
+
+<select id="tar-city" name="tar-city" multiple>
+
+</select>
+</body>
+</html>

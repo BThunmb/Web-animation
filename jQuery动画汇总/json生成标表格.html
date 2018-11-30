@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * { padding: 0; margin: 0; }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+            text-align: center;
+        }
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            var data  = [{
+                name:"枇杷",
+                season:"春天",
+                introduce:"未成熟呈青，成熟呈黄，酸酸的味道"
+            },{
+                name:"西瓜",
+                season:"夏天",
+                introduce:"冰镇西瓜，凉爽一夏"
+            },{
+                name:"雪梨",
+                season:"冬天",
+                introduce:"清甜，口感有点像嚼沙子"
+            }]
+
+            $("button").on("click",function () {
+                var strHTML = "";
+               for(var i = 0; i < data.length; i++){
+                   var temp = data[i];
+                   strHTML += "<tr>";
+                   strHTML +=       "<td>" + temp.name +"</td>";
+                   strHTML +=       "<td>" + temp.season +"</td>";
+                   strHTML +=       "<td>" + temp.introduce +"</td>";
+                   strHTML += "</tr>";
+                   $("#tbody").html(strHTML);
+                   // $("#tbody").append(strHTML);
+               }
+            });
+        });
+    </script>
+</head>
+<body>
+<button>动态生成</button>
+    <!--<div class="table">-->
+        <!---->
+        <!--<div id="tbody">-->
+
+        <!--</div>-->
+    <!--</div>-->
+<table>
+    <thead>
+        <tr>
+            <th>水果名字</th>
+            <th>成熟季节</th>
+            <th>介绍</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+</body>
+</html>

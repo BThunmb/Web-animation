@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 330px;
+            height: 30px;
+            line-heght: 30px;
+
+            margin: 100px auto;
+            border: 1px dashed red;
+        }
+        .box ul li{
+            width: 100px;
+            line-height: 30px;
+            margin-left: 10px;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+        }
+        .box ul ul{
+            display: none;
+        }
+    </style>
+    <script src="../../jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 一
+            $("#demo li").mouseenter(function () {
+                $(this).children("ul").stop(false,true).slideDown(2000);
+            });
+            $("#demo li").mouseleave(function () {
+                $(this).children("ul").stop(false,true).slideUp(2000);
+            });
+            // 二
+            // $("#demo li").hover(function () {
+            //     $(this).children("ul").stop(false,true).slideDown(2000);
+            // },function () {
+            //     $(this).children("ul").stop(false,true).slideUp(2000);
+            // });
+            //三
+            // $("#demo li").hover(function () {
+            //    $(this).children("ul").slideToggle();
+            // });
+        })
+    </script>
+</head>
+<body>
+    <div id="demo" class="box">
+        <ul>
+            <li>电视剧
+                <ul>
+                    <li>夏至未至</li>
+                    <li>倚天屠龙记</li>
+                    <li>射雕英雄传</li>
+                </ul>
+            </li>
+            <li>电影
+                <ul>
+                    <li>毒液</li>
+                    <li>无双</li>
+                    <li>吸血鬼日记</li>
+                </ul>
+            </li>
+            <li>娱乐
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

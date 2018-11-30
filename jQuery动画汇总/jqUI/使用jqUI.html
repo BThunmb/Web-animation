@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .tabs div{
+            height: 250px;
+        }
+    </style>
+    <script src="../../jquery-1.11.1.min.js"></script>
+    <script src="jQueryUI/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jQueryUI/jquery-ui.min.css">
+    <script>
+        $(function () {
+           $(".tabs").tabs();
+           $(".tabs li").eq(3).on("click",function () {
+              $(".dialog").dialog();
+           });
+        });
+    </script>
+</head>
+<body>
+    <div class="tabs">
+        <ul>
+            <li><a href="#text1">1</a></li>
+            <li><a href="#text2">2</a></li>
+            <li><a href="#text3">3</a></li>
+            <li><a href="#text4">弹窗</a></li>
+        </ul>
+        <div id="text1">1</div>
+        <div id="text2">2</div>
+        <div id="text3">3</div>
+        <!--<div id="text4">弹窗</div>-->
+    </div>
+    <div class="dialog">OK</div>
+</body>
+</html>

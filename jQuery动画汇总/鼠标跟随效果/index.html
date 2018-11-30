@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img {
+            position: absolute;
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $(document).on("mousemove",function (e) {
+                // if (){
+                //
+                // }
+                //怎么判断鼠标在文本上
+               $("img").css({
+                   // "position":"absolute",
+                    "display":"block",
+                   "top":e.pageY,
+                   "left":e.pageX
+               });
+            });
+
+            // $(document).keydown(function (e) {
+            //     console.log(e);
+            //     var data = $("div").data();
+            //     data.a = "";
+
+            //
+            // });;
+        });
+    </script>
+</head>
+<body>
+<img src="img/ts.gif" alt=""/>
+</body>
+</html>

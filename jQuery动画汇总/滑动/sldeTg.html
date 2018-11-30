@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../jquery-1.11.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("div").css({
+           "width":"300px",
+            "height":"200px",
+            "background-color":"pink"
+        });
+        $("button").eq(0).click(function () {
+            $("div").slideToggle();
+        });
+
+        $("button:eq(1)").click(function () {
+            $("div").fadeIn(2000);
+        });
+        $("button:eq(2)").click(function () {
+            $("div").fadeOut(2000);
+        });
+        $("button:eq(3)").click(function () {
+            $("div").fadeToggle(2000);
+        });
+        $("button:eq(4)").click(function () {
+            $("div").animate({
+                "width":"500px",
+                "height":"400px"
+            },3000);
+        })
+    })
+</script>
+<body>
+    <button>切换1</button>
+    <button>淡入</button>
+    <button>淡出</button>
+    <button>切换2</button>
+    <button>自定义动画</button>
+    <div></div>
+</body>
+</html>

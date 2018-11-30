@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+            /*font-size: 0px;*/
+        }
+        ul li{
+            float: left;
+            /*display: inline-block;*/
+            font-size: 30px;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+    <script src='../jquery-1.11.1.min.js'></script>
+    <script>
+        $(document).ready(function () {
+            var wjx_none = "☆";
+            var wjx_sel = "★";
+            $(".conment li").on("mouseenter",function () {
+                $(this).text(wjx_sel).prevAll().text(wjx_sel).end().nextAll().text(wjx_none);
+            }).on("click",function () {
+                console.log("111");
+                $(this).addClass("clicked").siblings().removeClass();
+            }).on("mouseleave",function () {
+                //重置全部，要不然没点击全部变成实心
+                $(".conment li").text(wjx_none);
+                $(".clicked").text(wjx_sel).prevAll().text(wjx_sel).end().nextAll().text(wjx_none);
+            });
+        });
+    </script>
+</head>
+<body>
+<ul class="conment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+</body>
+</html>
