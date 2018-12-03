@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="ceo/bootstrap.min.css">
+    <script src="ceo/jquery.min.js"></script>
+    <style>
+        .list-group li span{
+            width: 20px;
+            height: 20px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 20px;
+            border: 1px solid #000000;
+            color: #fff;
+            background-color: #ff0505;
+            position:absolute;
+            top:8px;
+            right:50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input id="fileHiddenBtn" class="hidden" type="file" value="" multiple/>
+            <input id="fileBtn" class="btn-warning" type="button" value="选择本地文件">
+            <!--<input id="chanceBtn" class="btn btn-warning" type="button" value="显示文件信息">-->
+        </form>
+        <h1>您选择的文件信息：</h1>
+        <ul id="fileList" class="list-group">
+            <li class="list-group-item">
+
+            </li>
+        </ul>
+    </div>
+    <script>
+        (function () {
+            // console.log("1");
+            var fileBtn = document.querySelector("#fileBtn");
+            var fileHiddenBtn = document.querySelector("#fileHiddenBtn");
+            var fileMaseges = document.querySelector("#fileList");
+            fileBtn.addEventListener('click',function(e){
+                fileHiddenBtn.click();
+            });
+            fileHiddenBtn.addEventListener('change',function(e){
+                // console.log("222");
+                if (fileHiddenBtn.files.length > 0){
+                    for(var i = 0; i < fileHiddenBtn.files.length; i++){
+                        // console.log(fileHiddenBtn.files.length);
+                        var li = document.createElement("li");
+                        var span = document.createElement("span");
+                        li.setAttribute("class",'list-group-item');
+                        li.innerHTML = '<h5 class="list-group-item-heading">文件名：' + fileHiddenBtn.files[i].name.split(".")[0] + '</h5>' + '<p class="list-group-item-text">扩展名：' + fileHiddenBtn.files[i].name.split(".")[1] + '<p>文件大小：' + (fileHiddenBtn.files[i].size / 1024 / 1024).toFixed(2) + 'MB' + '</p>' + '</p> <p>最后一次修改日期：' + fileHiddenBtn.files[i].lastModifiedDate.toLocaleDateString() + ' ' + fileHiddenBtn.files[i].lastModifiedDate.toLocaleTimeString()+ '</p>';
+                        span.innerHTML = "×";
+                        fileMaseges.appendChild(li);
+                        li.appendChild(span);
+                        span.addEventListener('click',function(e){
+                            $(this).parent("li").remove();
+                        });
+                    }
+                } else{
+                    fileMaseges.innerHTML= "没有选中文件，请重新选择";
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
